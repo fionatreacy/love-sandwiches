@@ -48,5 +48,17 @@ def validate_data(values):
         return False
     return True
 
-data = get_sales_data()
 
+def update_sales_worksheet(data):
+    """
+    update worksheet wiht new data on new row
+    """
+    print("updating sales worksheet...\n")
+    sales_worksheet = SHEET.worksheet("sales")
+    sales_worksheet.append_row(data)
+    print("sales workseet updated successfully\n")
+
+
+data = get_sales_data()
+sales_data = [int(num) for num in data]
+update_sales_worksheet(data)
